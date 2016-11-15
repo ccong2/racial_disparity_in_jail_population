@@ -70,10 +70,7 @@ data1$Bond<-as.double(data1$Bond)
 data1$Condition<-ifelse(data1$Bond<=5000,"<=5000",
                        ifelse(data1$Bond>5000 & data1$Bond<=10000,"5000-10000",
                               ifelse(data1$Bond>10000 & data1$Bond<=25000,"10000-25000",">25000")))
-#BETTER WAY TO DO IT
-#data.bond<-as.data.frame(table(data1$Condition,data1$Race))
-#colnames(data.bond)<-c("BondPayment","Race","Freq")
-#hchart(data.bond,"column",x=BondPayment,y=Freq,group=Race)
+
 
 data.bond<-data.frame(as.matrix(aggregate(data1$Race,list(data1$Condition),table)))
 #dim(data.bond)
