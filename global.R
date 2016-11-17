@@ -11,8 +11,38 @@ library(rdrop2)
 library(lubridate)
 
 #library(RCurl)
+#---------------Guyu's part---------------------
+jail.sum <- read.csv(url("http://dart.ncsa.uiuc.edu/stuffed/bpnj/daily_jail_summary/djlsummary.all.csv"))
+jail.sum <- subset(jail.sum, bookings!="NA")
+
+bookdate <- factor(jail.sum$bookDate)
+jail.sum$date.list <- as.Date(bookdate, format = "%m/%d/%Y")
+most.recent1 <-subset(jail.sum, date.list==max(date.list))
 
 
+
+bookings <- read.csv(url("http://dart.ncsa.uiuc.edu/stuffed/bpnj/daily_jail_log/djl.all.csv"))
+bookings <- subset(bookings, as.Date(bookings$BookDate, "%m/%d/%Y") ==max(jail.sum$date.list))
+#View(bookings)
+
+
+
+per.black=sum(bookings$Race=="B")/length(bookings)
+per.black
+per.white=sum(bookings$Race=="W")/length(bookings)
+per.hispanic=sum(bookings$Race =="H")/length(bookings)
+per.others=1-per.black-per.white-per.hispanic
+
+racial <- cbind(per.black, per.white, per.hispanic, per.others)
+racial <- rbind(racial, c(0.13, 0.73, 0.06, 0.08))
+#racial
+racial.category <-c("Black", "White", "Hispanic", "Others")
+colnames(racial) <- racial.category
+rownames(racial) <- c("Jail", "Champaign County")
+class(racial)
+class(list(racial[,1]))
+
+#--------------------------------------------------------------------------------
 #----------Panel1-------------
 #plot_t: Total Jail Population - jail.pop.summary
 data <- read.csv("jail_pop_summary.csv", header = T)  
