@@ -1,6 +1,37 @@
 shinyServer(function(input, output) {
   
 #-----------Panel1-----------------------
+  
+  output$DateBox <- renderValueBox({
+    valueBox(most.recent1$date.list, "Date", icon=icon("date"), color = "blue")
+  })
+  
+  output$BookingBox <- renderValueBox({
+    valueBox(most.recent1$bookings,"New Bookings", icon=icon("list"),color = "purple"
+      
+    )
+  })
+  
+  output$ReleaseBox <- renderValueBox({
+    valueBox(
+      most.recent1$releases,"New Releases", icon = icon("thumbs-up", lib = "glyphicon"),
+      color = "yellow"
+    )
+  })
+  output$plot <- renderHighchart({
+   
+    
+    highchart() %>% 
+    
+    hc_title(text = "New Bookings by Race") %>% 
+    hc_yAxis(min=0.00, max=1.00)%>%
+    hc_xAxis(categories = racial.category) %>%
+    hc_add_series(name = "Jail", data = c(racial[1,1], racial[1,2], racial[1,3], racial[1,4]), type = "column") %>% 
+    hc_add_series(name = "Champaign County", data = c(0.13, 0.73, 0.06, 0.08), type = "column") 
+   
+  })
+#--------------------------------------------------------------------------
+  
   output$plot_t <- renderHighchart({
     highchart() %>% 
       hc_title(text = "Total Jail Population by Date") %>% 
