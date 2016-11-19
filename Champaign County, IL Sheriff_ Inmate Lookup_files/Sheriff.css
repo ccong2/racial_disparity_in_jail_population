@@ -1,0 +1,372 @@
+﻿<style type="text/css">
+html, body,.wrapper {
+height:100%;
+/*
+ * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Prevents iOS text size adjust after orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+font-size: 100%;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */ 
+}
+
+body {
+   padding-top:58px;
+   background-color:#c3b091;
+   margin-bottom: -20px;
+   
+  /*serif fonts are those that have little hook-like lines at the ends of the main strokes of each character. e.g.alignment-adjust: 
+    the Times New Roman font, found in Windows system, is a serif font. 
+    "Sans serif" fonts are those without the small hook-like strokes. Well known sans serif typefaces include Arial and Helvetica.)
+    Arial, Helvetica $ sans-serif look almost the same thus,if a particular computer only has Helvetica and not Arial, the page will still look more or less the way I intended*/
+   font-family:  Arial,Verdana, Helvetica, sans-serif ;
+   //font-size:100%;
+
+}
+
+.site-banner{
+
+background-image: url('//www.co.champaign.il.us/sheriff/images/sheriffbg1.png');
+background-image: url('/images/sheriffbg1.png');
+background-repeat:no-repeat;
+background-size: 100% 100%;
+padding:0; margin:0;
+
+background-image: url('//www.co.champaign.il.us/sheriff/images/sheriffbg1.png');
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='//www1.co.champaign.il.us/sheriff/images/sheriffbg1.png', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='//www1.co.champaign.il.us/sheriff/images/sheriffbg1.png', sizingMethod='scale')";
+
+}
+
+#banner-image
+{
+	max-height:240px;
+    height:100%;
+    width:100%;
+}
+
+div.group { 
+  border: none;
+  padding: 0; 
+  
+} 
+legend, 
+div.group div.legend { 
+  font-weight: bold; 
+} 
+div.text label, 
+div.text div 
+{ 
+  margin-top: .5em; 
+  display: block; 
+  width: 8em; 
+  margin: 0;
+ } 
+.iconNav{
+float: left;
+margin: 0 1em 0 0;
+padding-top: 5px;
+}
+.text-warning{
+    color: #A61303;
+    font-weight:bold;
+	margin: 0;
+}
+.text-emphasis{
+    color: black;
+	font-weight:bold;
+	margin: 0;
+}
+.text-sidenote{
+    color: black;
+	font-style:italic;
+	margin: 0;
+}
+.text-accordion{
+    color:black;
+    margin-left:-30px;
+}
+.text-accordion-heading2{
+    color:black;
+    margin-left: 15px;
+    text-decoration: underline;
+}
+.text-accordion-heading{
+    color:black;
+    margin-left: -30px;
+    text-decoration: underline;
+}
+p
+{
+  margin:0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+a {color:#000092;} 
+
+a.inactiveLink {
+   pointer-events: none;
+   cursor: default;
+   color:black;
+}
+li{
+  margin: 10px 0;
+}
+hr { 
+display: block; 
+border: 0; 
+border-top: 7px solid #402729;
+margin:0; 
+padding: 0;
+}
+
+hr.thindoubleline { 
+display: block; 
+border: 0; 
+border-top: 5px solid #402729;
+margin:0 0 5px 0; 
+padding: 0;
+box-shadow:0 10px 5px #fff;
+-webkit-box-shadow: 0 10px 5px #fff;
+-moz-box-shadow: 0 10px 5px #fff;
+-o-box-shadow: 0 10px 5px #fff;
+ 
+ /* IE6-8 Specific Code */
+ filter: progid:DXImageTransform.Microsoft.DropShadow(OffX=0, OffY=5, Color=#ffffff);
+}
+
+hr.thinsingleline{ 
+height: 1px;
+border: 0;
+color: #333;
+background-color: #333;
+width: 100%;
+
+}
+
+hr.accordionline{ 
+height: 1px;
+border: 0;
+color: #333;
+background-color: #333;
+//width: 100%;
+margin-left: -12px;
+}
+
+.img-responsive {
+  display: block;  
+  height: auto;  
+  max-width: 100%;  
+}  
+.img-rightsidebar{
+  border:0;
+  /*width:100%;
+  height:100%;*/
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+.nav-divider{border-top: 1px solid #402729;}
+
+
+/* for mobile phone  */
+@media all and (min-width: 768px) {
+  .navbar.navbar-default ul {
+	border: none;
+	list-style-type: none;
+	float: none;
+	margin:0px;
+  } 
+  .navbar.navbar-default li a {
+    padding-top: 2px;
+    padding-bottom: 5px;
+	padding-left:0px;
+  }
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height:none;
+   }
+  .sidebar-nav .navbar ul {
+    float: none;
+	padding: 0;
+    list-style-type: none;
+	
+  }  
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+	
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 2px;
+    padding-bottom: 5px;
+	padding-left:0px;
+  }
+ 
+}
+
+.navbar-default {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(to bottom, #E8DAC4 0%, #E8DAC4 100%);
+   /* background-image: linear-gradient(to bottom, #E8DAC4 0%, #E8DAC4 100%);
+   doesn't work in IE 9 and versions below 9 thus use background-color: #E8DAC4;'*/
+background-color: #E8DAC4;
+}
+ 
+/* hover tab color */
+.nav-tabs > li > a:hover, .nav-tabs>li>active>a:hover {
+   	background-color:#C4A25A;
+    color: #fff;
+	padding-left: 10px;
+}
+
+/* active tab color */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  color: #fff;
+  background-color:#402729;
+  padding-left: 10px;
+}
+
+/*remove spacing between middle columns */
+.row.no-gutter [class*='col-']:not(:first-child):not(:last-child) {
+  padding-right:1;
+  padding-left:1;
+  }
+  
+ /*remove right padding from first column */
+.row.no-gutter [class*='col-']:first-child {  padding-right:0;}
+
+ /*remove left padding from first column*/
+.row.no-gutter [class*='col-']:last-child {  padding-left:0; padding-right:0;  }
+
+/*set sidebar menu column height to the main container height*/
+.row.no-gutter{
+   /*display: inline-flex;- doesn't work on IE*/
+   width: 100%;
+   overflow: hidden;   
+}
+ 
+.leftverticalmenupanel{
+  background-color:#E8DAC4; 
+  padding-bottom: 1000em;
+  margin-bottom: -1000em;
+}
+
+.rightverticalmenupanel{
+  padding-bottom: 1000em;
+  margin-bottom: -1000em;
+ }
+ 
+ .footer{
+     height:2em;
+ }
+
+ /*accordion*/
+.panel-body{background-color:#c3b091; }
+.panel-group .panel {border-width: 0;}
+
+.panel-heading {
+padding: 5px 5px;
+border-bottom: 1px solid transparent;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+}
+.panel-title {
+margin-top: 0;
+margin-bottom: 0;
+font-size: 16px;
+color: inherit;
+	background-repeat: repeat-x;
+	background-image: linear-gradient(to bottom, #E8DAC4 0%, #E8DAC4 100%);
+}
+
+/*carousel*/
+#sheriffcarousel{/*padding-left:0; padding-top:3px;*/}
+.carousel-caption{
+    //padding-left:120px;
+//margin-right: -30px;
+//text-align:center;
+//margin-left: 10;
+//text-shadow: 0 0 0 rgba(0,0,0,.6);
+//text-shadow:  2px 2px 2px rgba(#000000);
+//color:#402729;
+background-color: rgba(0,0,0,0.6);
+//width: 60%;
+
+left:0;
+bottom:0;
+right:0;
+padding: 5px;
+}
+
+.carousel-inner>.item>.col-md-12>img{
+display: block;
+height: auto;
+max-width: 100%;
+line-height: 1;
+margin: 0 auto;
+}
+
+.cc-control {
+  position: absolute;
+  top: 40%;
+  left: 5px;
+  font-size: 60px;
+  font-weight: bolder;
+  line-height: 30px;
+  color: snow;
+  text-align: center;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+ 
+} 
+
+
+/*home page*/
+#news-release{
+background-color:#E8DAC4;
+padding-right:2px;
+//padding-bottom: 1000em;
+//margin-bottom: -1000em;
+height:350px;
+overflow:scroll;
+}
+
+
+
+#twitter-feed{
+//padding-bottom: 1000em;
+//margin-bottom: -1000em;
+background-color:#E8DAC4;
+border-left:7px solid #402729;
+//height:340px;
+}
+.twitter-timeline{
+    height:350px;
+}
+
+
+
+#main-content {padding-left: 15px;}
+
+@-moz-document url-prefix(){
+.text-accordion{
+    color:black;
+    margin-left:-30px;
+}
+
+}
+
+
+#captcha-audioIcon{width:32px; height:32px;}
+
+

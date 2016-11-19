@@ -1,85 +1,110 @@
-shinyUI(navbarPage("Racial Disparity Analysis Dashboard",theme = "bootstrap.css",
-                   tabPanel("Jail Population",
-                            fluidRow(
-                              valueBoxOutput("total"),
-                              valueBoxOutput("newbooking"),
-                              valueBoxOutput("newreleased")
+#ideas: navbar so we can have a separate page for uncommon disease plots and for p&i data
+
+shinyUI(navbarPage("Jail Population Dashboard",theme = "bootstrap.css",
+                   tabPanel("Today",
+                            titlePanel(h3("Today's Activity in Jail")),
+                            fluidRow(  
+                              valueBoxOutput("Date")),
+                            fluidRow(                             
+                              valueBoxOutput("Total"),
+                              valueBoxOutput("Newbooking"),
+                              valueBoxOutput("Newreleased")
                             ),
                             br(),
-                            br(),
                             
                             fluidRow(
                               box(
-                                width = 7, status = "info", solidHeader = TRUE,
-                                #title = "Total Jail Population",
-                                highchartOutput("plot_t") ),
-                              box(
-                                width = 5, status = "info",
-                                #title = "Bond Amount of Jail Population, broken down by Race",
-                                highchartOutput("plot_b") ))),
-                   
+                                width = 6, status = "info", solidHeader = TRUE,
+                                highchartOutput("plot_g") ),
+                              box(width=6, 
+                                  highchartOutput("plot_kk"),height = "100px"))
+                            #box(
+                            # width = 6, status = "info",
+                            #  title = "Change in Jail Population",
+                            # tableOutput("plot_x") ))
+                   ),
                    tabPanel("Booking",
-                            
+                            titlePanel(h3("Arrest Resolutions and Bookings by Race")),
                             column(width=4,
-                                   helpText(tags$b("Bookings by Race")),
                                    dateInput('startdate',
-                                             label = 'Start From: yyyy-mm-dd',
+                                             label = 'Start From: 2016-03-31',
                                              #format = "mm/dd/yy",
                                              value="2016-08-01"),
                                    dateInput('enddate',
-                                            label = 'To: yyyy-mm-dd',
-                                            #format = "mm/dd/yy",
-                                            value="2016-11-01"),
-                                   br(),
-                                   br(),
-                                   br(),
-                                   br(),
-                                   br(),
-                                   br(),
-                                   helpText(tags$strong("Visualize Arrests By Crime")),
-                                   selectInput("crimetype", "Select Crime", 
-                                               choices = as.list(sort(as.character(unique(crime$CRIME.CODE.DESCRIPTION)))))
-                            ),
+                                             label = 'To: Today',
+                                             #format = "mm/dd/yy",
+                                             value="2016-11-30")),
                             
                             
-                            
-                            # Show a plot of the generated distribution
                             column(width=8,
                                    
-                                   highchartOutput("plot_m",height = "300px"),
-                                   uiOutput("ui")
-                            )),
-                   
-                   
-                   tabPanel("Bail",
+                                   highchartOutput("plot_d",height = "300px"),
+                                   highchartOutput("plot_m",height = "300px"))
                             
-                            column(width=4,
-                                   helpText(tags$b("Bail/Unbail by Race")),
-                                   dateInput('startdate2',
-                                             label = 'Start From: yyyy-mm-dd',
-                                             #format = "mm/dd/yy",
-                                             value="2016-08-01"),
-                                   dateInput('enddate2',
-                                             label = 'To: yyyy-mm-dd',
-                                             #format = "mm/dd/yy",
-                                             value="2016-11-01")  ),        
-                            
-                            box(width=8,
-                                highchartOutput("plot_d",height = "300px")),
-                            br(),
-                            box(width=6, 
-                                highchartOutput("plot_p",height = "300px")),
-                            box(width=6, 
-                                highchartOutput("plot_r",height = "300px"))
                             
                    ),
-                   
-                   tabPanel("Raw Data",
-                           numericInput("maxrows", "Rows to show", 25, min=1, max=dim(data)[1]),
-                           verbatimTextOutput("rawtable"),
-                           downloadButton("downloadCsv", "Download All Data as CSV")
+                   tabPanel("Bond",
+                            titlePanel(h3("Bond Payment by Race")),
+                            fluidRow(
+                              valueBoxOutput("Date2"),
+                              column(8,offset=3,highchartOutput("plot_b",height = "300px" ))),
+                            
+                            fluidRow(  
+                              titlePanel(h3("Race Representation Comparison")),
+                              column(width=3,
+                                     #helpText(tags$b("Bail/Unbail by Race")),
+                                     dateInput('startdate2',
+                                               label = 'Start From: 2016-03-31',
+                                               #format = "mm/dd/yy",
+                                               value="2016-08-01"),
+                                     dateInput('enddate2',
+                                               label = 'To: Today',
+                                               #format = "mm/dd/yy",
+                                               value="2016-11-30")  ),    
+                              box(width=8, 
+                                  highchartOutput("plot_r",height = "300px")))
+                   ),
+                   tabPanel("JailPopulation",
+                            fluidRow(column(
+                              7, offset=2,
+                              #title = "Total Jail Population",
+                              highchartOutput("plot_t") )),
+                            fluidRow(   
+                              numericInput("maxrows", "Rows to show", 10, min=1, max=dim(data)[1]),
+                              verbatimTextOutput("rawtable")
+                            )
+                   ),
+                   tabPanel("Juvenile Detention",
+                            titlePanel(h3("2014 Detention Data")),
+                            fluidRow(
+                              valueBoxOutput("JAD"),
+                              valueBoxOutput("JP"),
+                              valueBoxOutput("JTB")
+                            ),
+                            fluidRow(
+                              box(width=6, 
+                                  highchartOutput("JOT",height = "300px")),
+                              br(),
+                              box(width=6, 
+                                  highchartOutput("JR",height = "300px"))
+                            ),
+                            
+                            titlePanel(h3("2013 Detention Data")),
+                            fluidRow(
+                              valueBoxOutput("JAD1"),
+                              valueBoxOutput("JP1"),
+                              valueBoxOutput("JTB1")
+                            ),
+                            fluidRow(
+                              box(width=6, 
+                                  highchartOutput("JOT1",height = "300px")),
+                              br(),
+                              box(width=6, 
+                                  highchartOutput("JR1",height = "300px"))
+                            )
                    )
-))
 
+                   )
+)             
 
 
