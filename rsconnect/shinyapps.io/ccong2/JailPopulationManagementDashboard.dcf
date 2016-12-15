@@ -2,8 +2,8 @@ name: JailPopulationManagementDashboard
 account: ccong2
 server: shinyapps.io
 appId: 142445
-bundleId: 638245
+bundleId: 650818
 url: https://ccong2.shinyapps.io/JailPopulationManagementDashboard/
-when: 1481063531.48404
+when: 1481770902.72739
 asMultiple: FALSE
 asStatic: FALSE

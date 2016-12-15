@@ -49,7 +49,7 @@ shinyUI(
                           fluidRow(class="bottom",
                             column(6,"    Notes:",
                                    p("1. Figure 1 shows only Total Housed Population in downtown and satellite jails, not including EHD (electronic home detention) and other housing."),
-                                   p("2. Data in Figure1 is from Champaign Sheriff's Inmate Lookup Webpage on Dec. 6. Due to the CAPTCHA setup of this website, this data is not automatically updated."),
+                                   p("2. Data in Figure1 is from Champaign Sheriff's Inmate Lookup Webpage on Dec. 14. Due to the CAPTCHA setup of this website, this data is not automatically updated."),
                                    p("3. Bars show the number of people held in jail and the pie chart shows the percentage. Check the figures by moving your mouse on each part of the chart.")
                                    ),
                             column(6,"    Notes:",
@@ -105,7 +105,7 @@ shinyUI(
                                 box(width=5,panel_div(class_type="primary",panel_title = "Instructions",
                                                       content = "Illinois law typically allows a person to secure their release by paying 10% of the bond set by the court. When the official bond is set at $1000 or less, $10,000 or less, or $25,000 or less, people in pretrial detention are those unable to pay bail of $100, $1000, and $2500. Figure 5 indicates what percent of incarcerated pretrial population, broken down by race, could not pay relatively small sums of money."),
                                     p("    Notes:"),
-                                    p("1. Data in Figure 5 is from Champaign Sheriff's Inmate Lookup Webpage on Dec. 6. Due to the CAPTCHA setup of this website, this data is not automatically updated."),
+                                    p("1. Data in Figure 5 is from Champaign Sheriff's Inmate Lookup Webpage on Dec. 14. Due to the CAPTCHA setup of this website, this data is not automatically updated."),
                                     p("2. For each column, the denominator is the total number of people in each bond amount category, the nominator is the number of people of each race in this category.")
                                     ),
                                 column(7,highchartOutput("plot_b")),
