@@ -1,0 +1,9 @@
+name: Test
+account: ccong2
+server: shinyapps.io
+appId: 142451
+bundleId: 637264
+url: https://ccong2.shinyapps.io/Test/
+when: 1480994622.1072
+asMultiple: FALSE
+asStatic: FALSE
